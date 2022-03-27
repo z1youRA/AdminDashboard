@@ -48,7 +48,7 @@ table {
 
 body {
     display: grid;
-    grid-template-rows: 150px 1fr;
+    grid-template-rows: minmax(200px, 20%) 1fr;
     grid-template-columns: 300px 1fr;
     grid-template-areas: "sidebar header"
     "sidebar main-content";
@@ -56,18 +56,129 @@ body {
     width: 100%;
 }
 
+svg {
+    height: 1.2rem;
+    width: 1.2rem;
+}
+
 .sidebar {
     grid-area: sidebar;
-    background-color: lightblue;
+    color: white;
+    background-color: #0095da;
+    display: flex; 
+    flex-direction: column;
+    gap:2rem;
+}
+
+.side-header {
+    font-size: 2rem;
+    padding: 1rem 0 0 1.5rem;
+    gap: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.side-container {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1.5rem;
+    gap: 0.8rem;
+}
+
+.side-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .header {
+    display: flex;
+    flex-direction: column;
     grid-area: header;
     background-color: white;
     box-shadow: grey 3px 3px 10px;
+    z-index: 1;
+}
+
+.upper-header {
+    height: 40%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}
+
+.profile-icon {
+    border-radius: 50%;
+}
+
+.upper-header .profile-icon {
+    height: 2rem;
+}
+
+.lower-header {
+    gap: 1rem;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.lower-header button:first-of-type {
+    margin-left: auto;
+}
+
+.lower-header .profile-icon {
+    height: 4rem;;
+}
+
+.lower-header button {
+    background: #0095da;
+    color: white;
+    border-radius: 30px;
+    height: 2rem;
+    width: 4rem;
+    font-weight: bold;
+}
+
+.notify-icon {
+    margin-left: auto;
+}
+
+.lower-header {
+    height: 60%;
 }
 
 .main-content {
     grid-area: main-content;
     background-color: #e1e9f1;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 5fr 2fr;
+    grid-template-areas: "projects announcements"
+    "projects trending";
+}
+
+.main-part {
+    margin: 2rem;
+}
+
+#projects {
+    grid-area: projects;
+}
+
+#projects .part-container {
+    display: grid;
+    grid-template: 1fr 1fr 1fr/1fr 1fr;
+}
+
+#announcements {
+    grid-area: announcements;
+}
+
+#trending {
+    grid-area: trending;
 }
